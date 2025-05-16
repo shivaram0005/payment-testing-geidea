@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+               <title>Geidea Checkout Example</title>
+
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+               <script src=https://payments.geidea.ae/hpp/geideaCheckout.min.js></script>
+
+               <script>
+
+                              function startPayment() {
+
+                                  var sessionId = "32d53db8-eff7-4898-ab56-08dd8bc65276";
+
+                                             // Initialize GeideaCheckout
+
+                                             var payment = new GeideaCheckout(onSuccess, onError, onCancel);
+
+ 
+
+                                             // Start the payment
+
+                                             payment.startPayment(sessionId);
+
+                              }
+
+ 
+
+                              // Define the onSuccess function
+
+                              let onSuccess = function(data) {
+
+                                             console.log('Success:' + '\n' +
+
+                                             data.responseCode + '\n' +
+
+                                             data.responseMessage + '\n' +
+
+                                             data.detailedResponseCode + '\n' +
+
+                                             data.detailedResponseMessage + '\n' +
+
+                                             data.orderId + '\n' +
+
+                                             data.reference);
+
+                              };
+
+ 
+
+        // Define the onError function
+
+                              let onError = function(data) {
+
+                                             alert('Error:' + '\n' +
+
+                                             data.responseCode + '\n' +
+
+                                             data.responseMessage + '\n' +
+
+                                             data.detailedResponseCode + '\n' +
+
+                                             data.detailedResponseMessage + '\n' +
+
+                                             data.orderId + '\n' +
+
+                                             data.reference);
+
+                              };
+
+ 
+
+                              // Define the onCancel function
+
+                              let onCancel = function(data) {
+
+                                             alert('Payment Cancelled:' + '\n' +
+
+                                             data.responseCode + '\n' +
+
+                                             data.responseMessage + '\n' +
+
+                                             data.detailedResponseCode + '\n' +
+
+                                             data.detailedResponseMessage + '\n' +
+
+                                             data.orderId + '\n' +
+
+                                             data.reference);
+
+                              };
+
+               </script>
+
+</head>
+
+<body>
+
+               <button onclick="startPayment()">Geidea Checkout</button>
+
+</body>
+
+</html>
